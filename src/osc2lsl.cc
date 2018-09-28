@@ -89,6 +89,9 @@ int main(int argc, char**argv)
   st.start();
   while( !b_quit )
     usleep( 10000 );
+  st.stop();
+  for( stream_map_t::iterator it=streams.begin();it!=streams.end();++it)
+    delete it->second;
 }
 
 
