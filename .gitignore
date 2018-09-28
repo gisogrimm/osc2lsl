@@ -1,3 +1,9 @@
+# backup:
+*~
+
+#build directory:
+build
+
 # Prerequisites
 *.d
 
