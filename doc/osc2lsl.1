@@ -1,0 +1,22 @@
+.\" Manpage for osc2lsl.
+.TH man 1 -DATE- -VERSION- "osc2lsl man page"
+.SH NAME
+osc2lsl \- convert OSC messages into an LSL stream
+.SH SYNOPSIS
+osc2lsl [options] 
+.SH DESCRIPTION
+osc2lsl is a tool to either automatically or manually create LSL streams. Data are received via OSC.
+.SH OPTIONS
+.IP "-h | --help"
+Show list of options
+.IP "-a # | --add=#"
+Add a path/format combination, in the form path:format. The format can be only of a single type, e.g., 's', 'f', 'ff', 'd', 'ddd', and so on.
+.IP "-n | --noauto"
+Do not add LSL streams automatically, only create streams added with the --add option.
+.IP "-p # | --port=#"
+Configure port number of OSC server.
+.SH BUGS
+No known bugs.
+.SH AUTHOR
+Giso Grimm (giso.grimm@vegri.net)
+
