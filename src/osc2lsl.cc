@@ -158,10 +158,13 @@ int main(int argc, char**argv)
   }
   std::atomic<bool> b_quit(false);
   st.add_method("/osc2lsl/quit", "",[&b_quit](lo_arg **,int){b_quit = true;});
+  for( auto & t : streams ){
+    DEBUG(t.second->info().name());
+    DEBUG(t.first.substr(t.second->info().name().size()));
+    st.add_method( t.second->info().name(), t.first.substr(t.second->info().name().size()), &send_something, &streams );
+  }
   if( !noauto )
     st.add_method( NULL, NULL, &send_something, &streams );
-  for( auto & t : streams )
-    st.add_method( t.second->info().name(), NULL, &send_something, &streams );
   st.start();
   while( !b_quit )
     usleep( 10000 );
