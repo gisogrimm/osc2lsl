@@ -1,0 +1,4 @@
+Section: non-free/sound
+Maintainer: Giso Grimm <giso.grimm@vegri.net>
+Description: OSC to LSL converter
+   Convert OSC message sequences into an LSL stream.
