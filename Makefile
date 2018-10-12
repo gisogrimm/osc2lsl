@@ -14,6 +14,10 @@ bin: build/osc2lsl
 build/%.o: src/%.cc
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+clean:
+	rm -Rf build
+
+
 # Local Variables:
 # compile-command: "make"
 # End:
