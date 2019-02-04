@@ -49,7 +49,7 @@
 
 # There will by $SYSTEM subdirectories below this directory.
 # These subdirectories then contain the package files.
-SUPPLY_DIR = ./packaging/pack/
+SUPPLY_DIR = ../packaging/pack/
 
 # There will be $SYSTEM subdirectories below this directory.
 STORAGE_DIR = /packages_tascar/$(BRANCH_NAME)/
