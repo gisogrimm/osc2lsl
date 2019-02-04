@@ -1,5 +1,8 @@
 all: build bin
 
+pack: all
+	$(MAKE) -C packaging
+
 CXXFLAGS += -std=c++11
 LDLIBS += -llo -llsl64
 
@@ -15,7 +18,7 @@ build/%.o: src/%.cc
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 clean:
-	rm -Rf build
+	rm -Rf build packaging/pack packaging/man
 
 
 # Local Variables:
