@@ -1,6 +1,7 @@
 ALL_CSV=$(wildcard *.csv)
 
-VERSION=$(shell cat ../version)-gcc-$(shell gcc -dumpversion)-$(shell lsb_release -si)$(shell lsb_release -sr)
+COMMITHASH=$(shell git log -1 --abbrev=7 --pretty='format:%h')
+VERSION=$(shell cat ../version)-$(COMMITHASH)-gcc-$(shell gcc -dumpversion)-$(shell lsb_release -si)$(shell lsb_release -sr)
 DATE=$(shell LANG=en_EN date "+%d %B %Y")
 CODENAME=$(shell lsb_release -sc)
 
