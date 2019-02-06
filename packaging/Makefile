@@ -9,7 +9,7 @@ all:
 	rm -Rf pack man
 	$(MAKE) man/osc2lsl.1.gz
 	mkdir -p pack/$(CODENAME)
-	for c in $(ALL_CSV); do (cd .. && htchdebian-mkdeb packaging/$$c $(VERSION) ); done
+	for c in $(ALL_CSV); do (cd .. && ./packaging/htchdebian-mkdeb packaging/$$c $(VERSION) ); done
 	mv ../*.deb ./pack/$(CODENAME)/
 	for c in $(ALL_CSV:.csv=); do ls pack/$(CODENAME)/$${c}_*.deb || return 1; done
 
