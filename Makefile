@@ -3,8 +3,11 @@ all: build bin
 pack: all
 	$(MAKE) -C packaging
 
-CXXFLAGS += -std=c++11
-LDLIBS += -llo -llsl
+LO_CFLAGS := $(shell pkg-config --cflags liblo)
+LO_LIBS := $(shell pkg-config --libs liblo)
+
+CXXFLAGS += -std=c++11 $(LO_CFLAGS)
+LDLIBS += $(LO_LIBS) -llsl
 
 build:
 	mkdir -p $@
