@@ -1,0 +1,21 @@
+name: MacOS make 14
+
+on:
+  push:
+    branches: [ master, development ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: macos-14
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: fetchall
+      run: git fetch --unshallow --tags
+    - name: dependencies
+      run: brew install pkgconfig liblo labstreaminglayer/tap/lsl
+    - name: make
+      run: make
