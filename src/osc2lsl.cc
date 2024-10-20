@@ -6,6 +6,7 @@
 #include <unistd.h>
 #include <map>
 #include <getopt.h>
+#include <cstdint>
 
 #define DEBUG(x) std::cerr << __FILE__ << ":" << __LINE__ << " " << #x << "=" << x << std::endl
 

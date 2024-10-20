@@ -4,7 +4,7 @@ pack: all
 	$(MAKE) -C packaging
 
 CXXFLAGS += -std=c++11
-LDLIBS += -llo -llsl64
+LDLIBS += -llo -llsl
 
 build:
 	mkdir -p $@
