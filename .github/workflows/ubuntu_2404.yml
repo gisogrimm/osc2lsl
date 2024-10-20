@@ -1,0 +1,32 @@
+name: Ubuntu 24.04 make
+
+on:
+  push:
+    branches: [ master, development ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-24.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: fetchall
+      run: git fetch --unshallow --tags
+    - name: hoerzentrumserver for LSL
+      run: wget -qO- https://apt.hoertech.de/openmha-packaging.pub | sudo apt-key add - &&
+           sudo apt-add-repository 'deb http://apt.hoertech.de/ noble universe'
+    - name: dependencies
+      run: sudo apt update && 
+           sudo apt install --assume-yes build-essential dpkg-dev liblsl liblo
+    - name: make
+      run: make
+    - name: packaging
+      run: make pack
+    - name: Upload debian packages to artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: osc2lsl-debian
+        path: packaging/pack/*/*.deb
